@@ -4,7 +4,7 @@ export default function (program: ts.Program, pluginOptions: {}) {
     return (sourceFile: ts.SourceFile) => {
       function visitor(node: ts.Node): ts.Node {        
         if (ts.isStringLiteral(node)) {
-          return ts.createLiteral('transformed');
+          return ts.factory.createStringLiteral('transformed');
         }
         return ts.visitEachChild(node, visitor, ctx)
       }

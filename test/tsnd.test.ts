@@ -173,7 +173,7 @@ describe('ts-node-dev', function () {
     const ps = spawnTsNodeDev(
       [
         `--respawn`,
-        `--compiler ttypescript`,
+        `--compiler ts-patch/compiler`,
         `--compiler-options=${JSON.stringify(cOptions)}`,
         `import-json`,
       ].join(' ')
@@ -224,11 +224,11 @@ describe('ts-node-dev', function () {
   })
 
   it('should allow to use custom TS transformers', async () => {
-    const cOptions = { plugins: [{ transform: 'ts-nameof', type: 'raw' }] }
+    const cOptions = { plugins: [{ transform: '@typescript-nameof/nameof' }] }
     const ps = spawnTsNodeDev(
       [
         `--respawn`,
-        `--compiler ttypescript`,
+        `--compiler ts-patch/compiler`,
         `--compiler-options=${JSON.stringify(cOptions)}`,
         `nameof.ts`,
       ].join(' ')
@@ -243,7 +243,7 @@ describe('ts-node-dev', function () {
     const ps = spawnTsNodeDev(
       [
         `--respawn`,
-        `--compiler ttypescript`,
+        `--compiler ts-patch/compiler`,
         `--compiler-options=${JSON.stringify(cOptions)}`,
         `to-transform.ts`,
       ].join(' ')
