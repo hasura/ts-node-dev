@@ -1,6 +1,8 @@
 # ts-node-dev
 
 > Tweaked version of [node-dev](https://github.com/fgnass/node-dev) that uses [ts-node](https://github.com/TypeStrong/ts-node) under the hood.
+>
+> Forked from [wclr/ts-node-dev](https://github.com/wclr/ts-node-dev) with minor fixes to update deprecated dependencies.
 
 It restarts target node process when any of required files changes (as standard `node-dev`) but shares [Typescript](https://github.com/Microsoft/TypeScript/) compilation process between restarts. This significantly increases speed of restarting comparing to `node-dev -r ts-node/register ...`, `nodemon -x ts-node ...` variations because there is no need to instantiate `ts-node` compilation each time.
 
